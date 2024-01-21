@@ -4,7 +4,7 @@ import pandas as pd
 from docx import Document
 
 
-app = Flask(__name__)\
+app = Flask(__name__)
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'docx'}
@@ -64,16 +64,6 @@ def process_folder(file_list, output_excel):
     # Save the combined DataFrame to the output Excel file
     df_existing.to_excel(output_excel, index=False, engine='openpyxl')
 
-# @app.route('/', methods=['GET', 'POST'])
-# def index():
-#     if request.method == 'POST':
-#         files = request.files.getlist('file')
-#         if files:
-#             process_folder(files, "Book1.xlsx")
-#             return redirect(url_for('index'))
-
-#     return render_template('index.html')
-
 
 from flask import Flask, render_template, request, redirect, url_for, send_file
 import os
@@ -114,4 +104,4 @@ def download():
     return send_file(path, as_attachment=True)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
