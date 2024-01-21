@@ -1,0 +1,23 @@
+/* Add your custom styles here */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #555;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}

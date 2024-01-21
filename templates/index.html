@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOCX-DIGGER</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <style>
+        .logo-container {
+            background-image: url("{{ url_for('static', filename='images/favicon1.ico') }}");
+        }
+
+ 
+    </style>
+    
+  </head>
+  <body>
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        
+            <div class="navbar-header">
+                <div class="container-fluid logo-container"></div>
+                <h1 style="color: white; font-size: xx-large;">DOCX-DIGGER</h1>
+                
+            </div>
+        </div>
+    </nav>
+    
+    <!-- <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-img">
+                <h1 style="color: white; font-size: xx-large;">DOCX-DIGGER</h1>
+            </div>
+            </div>
+        </div>
+
+    </nav> -->
+    <header id="first">
+        <div class="header-content">
+            <div class="inner">
+                <h1 class="cursive">Simple Metadata Extractor</h1>
+                <h4>Upload Single or multiple files at once.</h4>
+                <hr>
+                <!-- <form action="/" method="post" enctype="multipart/form-data">
+                    <label for="file-input" class="custom-file-upload">
+                      <span style="color: rgb(70, 60, 60);">Choose Files</span>
+                      <input type="file" id="file-input" name="file" multiple accept=".docx" hidden>
+                    </label>
+                    <button type="submit" class="custom-upload-button">Upload</button>
+                  </form> -->
+                  <form action="/" method="post" enctype="multipart/form-data">
+                    <label for="file-input" class="custom-file-upload">
+                        <span style="color: rgb(70, 60, 60);" id="selected-files">Choose Files</span>
+                        <input type="file" id="file-input" name="file" multiple accept=".docx" hidden onchange="updateSelectedFiles()">
+                    </label>
+                    <button type="submit" class="custom-upload-button">Upload</button>
+                </form>
+
+                </div>
+            
+        </div>
+        
+    </header>
+    <script>
+        function updateSelectedFiles() {
+            const fileInput = document.getElementById('file-input');
+            const selectedFilesLabel = document.getElementById('selected-files');
+    
+            if (fileInput.files.length > 0) {
+                selectedFilesLabel.textContent = `${fileInput.files.length} file(s) selected`;
+            } else {
+                selectedFilesLabel.textContent = 'Choose Files';
+            }
+        }
+    </script>
+  </body>
+</html>
